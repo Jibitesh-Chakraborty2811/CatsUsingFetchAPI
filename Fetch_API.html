@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+    <style>
+        h1
+        {
+            text-align: center;
+            font-size: 50px;
+            color: black;
+            font-family:cursive;
+            margin-top: 100px;
+        }
+        button
+        {
+            text-align: center;
+            color: black;
+            background-color: aqua;
+            border: groove;
+            border-radius: 5px;
+            margin-left: 200px;
+            margin-top: 50px;
+            margin-bottom: 20px;
+        }
+        p
+        {
+            text-align: center;
+            font-size: 20px;
+            font-family: cursive;
+        }
+        div
+        {
+            background-color: white;
+            opacity: 65%;
+            margin-left: 500px;
+            margin-right: 500px;
+            border-radius: 50px;
+        }
+        body
+        {
+            background-image: url("https://images.unsplash.com/photo-1598188306155-25e400eb5078?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxleHBsb3JlLWZlZWR8MTh8fHxlbnwwfHx8fA%3D%3D&w=1000&q=80");
+            background-position: center;
+            background-size: cover;
+        }
+    </style>
+    <head>
+        
+    </head>
+    <body>
+        <div>
+            <h1>Cats</h1>
+        <button class="Get data" id="Get data">Click to get data</button>
+        <br>
+        <br>
+        <p id="text"></p>
+        <br>
+        <br>
+        <p id="number"></p>
+        <br>
+        <br>
+        </div>
+    </body>
+    <script>
+       
+        async function gettingdata()
+        {
+           const url = 'https://catfact.ninja/fact';
+           const response = await fetch(url);
+           const data = await response.json();
+           console.log(data);
+           var t = document.getElementById("text");
+           t.textContent = "fact : " + data.fact;
+           var n = document.getElementById("number");
+           n.textContent = "length : " + data.length;
+        }
+        document.getElementById("Get data").addEventListener("click", gettingdata);
+    </script>
+</html>
